@@ -1,7 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
+ /* Remove highlight boxes */
+ * {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+#joystick {
+  border: 1px solid #9c989831;
+  cursor: grab;
+}
+
+#joy1Div {
+  width: 150px;
+  height: 150px;
+  margin: 40px;
+}
+
 body {
-  font-family: sans-serif;
+  font-family: "Courier New", Courier, monospace;
   color: white;
   display: flex;
   flex-direction: column;
@@ -11,11 +33,16 @@ body {
 }
 
 h1 {
-  padding-top: 1rem;
+  margin: 0;
+  margin-top: 4rem;
+  padding: 0;
 }
 
 p {
   text-align: center;
+}
+p::before {
+  content: 'Use arrow keys or the joystick to move.';
 }
 
 footer a {
@@ -37,13 +64,37 @@ footer a:visited {
   color: white;
 }
 
-@media (max-width: 1024px) {
-  p::after {
-    content: ' (touch devices are not supported)';
+@media (max-width: 550px) {
+  #canvas {
+    width: 250px;
+    height: 250px;
+  }
+
+  #joystick {
+    border: 1px solid #9c989823;
+    padding: 0px;
+  }
+
+  #joy1Div {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+  }
+
+  h1 {
+    font-size: 1.1rem;
+  }
+  
+  p {
+    font-size: 0.55rem;
+  }
+
+  p::before {
+    content: 'Tap on the screen or use the joystick to move.';
   }
 
   footer a {
-    font-size: 0.7rem;
+    font-size: 0.5rem;
     font-style: italic;
     bottom: auto;
     top: 0;
